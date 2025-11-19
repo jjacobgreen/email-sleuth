@@ -5,7 +5,6 @@ use crate::core::error::{AppError, Result};
 use crate::core::models::FoundEmailData;
 
 use reqwest::Client;
-use tracing;
 use url::Url;
 
 /// Generates the potential OneDrive for Business URL for a Microsoft 365 account.

@@ -6,7 +6,6 @@ use super::{Config, ConfigFile, Result};
 use crate::AppError;
 use std::path::Path;
 use std::time::Duration;
-use tracing;
 /// Builder pattern for creating `Config` instances fluently.
 ///
 /// This is the primary way users should create a `Config` object.

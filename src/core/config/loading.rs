@@ -5,7 +5,6 @@ use anyhow::Context;
 use std::fs;
 use std::path::Path;
 use std::time::Duration;
-use tracing;
 
 /// Loads configuration settings from a TOML file.
 /// Returns the parsed `ConfigFile` content.

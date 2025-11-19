@@ -18,7 +18,6 @@ use std::io::{BufReader, BufWriter};
 use std::path::Path;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
-use tracing;
 use tracing_subscriber::{fmt::format::FmtSpan, EnvFilter, FmtSubscriber};
 
 mod service;
@@ -385,7 +384,7 @@ async fn process_cli_mode(config: &Config, sleuth: &EmailSleuth, args: &AppArgs)
     let domain_input = args.domain.as_ref().cloned().unwrap();
 
     let name_parts: Vec<&str> = name.split_whitespace().collect();
-    let first_name = name_parts.get(0).map(|s| s.to_string());
+    let first_name = name_parts.first().map(|s| s.to_string());
     let last_name = name_parts.last().map(|s| s.to_string());
 
     let contact = Contact {
@@ -652,7 +651,7 @@ fn print_cli_results(result: &ProcessingResult, config: &Config) {
         } else if result
             .email_discovery_results
             .as_ref()
-            .map_or(true, |r| r.found_emails.is_empty())
+            .is_none_or(|r| r.found_emails.is_empty())
         {
             println!("Reason: No potential email candidates were generated or found.");
         } else {

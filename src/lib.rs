@@ -19,7 +19,6 @@ use crate::core::models::ValidatedContact;
 use crate::utils::smtp::test_smtp_connectivity;
 use futures::stream::{FuturesUnordered, StreamExt};
 use std::sync::Arc;
-use tracing;
 
 /// Initializes shared resources like HTTP client and DNS resolver.
 /// Essential for creating an `EmailSleuth` instance.

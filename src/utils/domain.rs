@@ -1,7 +1,6 @@
 //! Utility functions for handling domain names and URLs.
 
 use crate::core::error::{AppError, Result};
-use tracing;
 use url::Url;
 
 /// Extracts the base domain name (e.g., "example.com") from a given URL or domain string.
@@ -52,7 +51,7 @@ pub(crate) fn get_domain_from_url(website_url_or_domain: &str) -> Result<String>
                 let host = trimmed_input.strip_prefix("www.").unwrap_or(trimmed_input);
                 return Ok(host.to_lowercase());
             }
-            return Err(AppError::UrlParse(e).into());
+            return Err(AppError::UrlParse(e));
         }
     };
 

@@ -2,7 +2,6 @@
 
 use super::result::SmtpVerificationResult;
 use lettre::transport::smtp::Error as SmtpError;
-use tracing;
 
 /// Interprets lettre::transport::smtp::Error into a structured SmtpVerificationResult
 pub(crate) fn handle_smtp_error(error: &SmtpError, server: &str) -> SmtpVerificationResult {

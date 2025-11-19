@@ -2,7 +2,6 @@
 
 use crate::core::config::Config;
 use std::collections::HashSet;
-use tracing;
 
 /// Removes most non-alphanumeric characters, whitespace, and converts to lowercase.
 /// Designed to create usable parts for email local-part generation.

@@ -11,7 +11,6 @@ use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 use std::time::Instant;
 use tokio::time::sleep;
-use tracing;
 use trust_dns_resolver::TokioAsyncResolver;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -892,7 +891,7 @@ impl EmailSleuth {
         }
 
         // Default if no specific pattern matches
-        return ProviderType::Other;
+        ProviderType::Other
     }
 
     /// Checks if the contact's name parts are present in the email's local part.
@@ -910,7 +909,7 @@ impl EmailSleuth {
 
     /// Checks if an email uses a known generic prefix.
     fn is_generic_prefix(&self, config: &Config, email: &str) -> bool {
-        email.split('@').next().map_or(false, |local| {
+        email.split('@').next().is_some_and(|local| {
             config
                 .generic_email_prefixes
                 .contains(&local.to_lowercase())

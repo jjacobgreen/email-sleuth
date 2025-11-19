@@ -7,7 +7,6 @@ use crate::core::models::FoundEmailData;
 use fantoccini::{Client, ClientBuilder};
 use serde_json::map::Map as JsonMap;
 use std::sync::Arc;
-use tracing;
 
 #[derive(Clone)]
 #[allow(dead_code)]

@@ -2,7 +2,6 @@
 
 use super::{Config, Result};
 use crate::core::error::AppError;
-use tracing;
 
 /// Validates the configuration settings after loading and potential overrides.
 /// Mutates the config to clamp values or set defaults where applicable and logical.
